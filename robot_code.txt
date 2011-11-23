@@ -42,7 +42,7 @@ on side card
         compressor.start();
         Timer.delay(10.0);
         cam = AxisCamera.getInstance();
-        cam.writeResolution(AxisCamera.ResolutionT.k640x480);
+        cam.writeResolution(AxisCamera.ResolutionT.k160x120);
         //cam.writeColorLevel(1);
         cam.writeBrightness(0); //// cam = AxisCamera.getInstance();
  //cam.writeResolution(AxisCamera.ResolutionT.k640x480);
@@ -72,25 +72,25 @@ on side card
  //cam.getImage(image.image);
             // rightStick.
              //arm1.
-             if (rightStick.getRawButton(2)==true) //Button R2 sets Servo: arm1 to 25% of its total 
+             if (leftStick.getRawButton(2)==true) //Button R2 sets Servo: arm1 to 25% of its total 
 range (180 degrees)
              {
                  arm1.set(0.25);
              }
-             if (rightStick.getRawButton(3)==true) //Button R3 sets Servo: arm1 to 75% of its total 
+             if (leftStick.getRawButton(3)==true) //Button R3 sets Servo: arm1 to 75% of its total 
 range (180 degrees)
              {
                  arm1.set(0.75);
              }
-             if (rightStick.getRawButton(4)==true)
+             if (leftStick.getRawButton(4)==true)
              {
                  arm2.set(0.25);
              }
-             if (rightStick.getRawButton(5)==true)
+             if (leftStick.getRawButton(5)==true)
              {
                  arm2.set(0.75);
              }
-             if (rightStick.getRawButton(1)==true)
+             if (leftStick.getRawButton(1)==true)
              {
                  arm1.set(0.5);
                  arm2.set(0.5);
