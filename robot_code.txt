@@ -1,84 +1,118 @@
-/*----------------------------------------------------------------------------*/ /* Copyright (c) FIRST 
-2008. All Rights Reserved.  */ /* Open Source Software - may be modified and shared by FRC teams. The 
-code */ /* must be accompanied by the FIRST BSD license file in the root directory of */ /* the 
-project.  */ /*----------------------------------------------------------------------------*/ //import 
-package edu.wpi.first.wpilibj.samples; package edu.wpi.first.wpilibj.templates; import 
-edu.wpi.first.wpilibj.SimpleRobot; import edu.wpi.first.wpilibj.RobotDrive; import 
-edu.wpi.first.wpilibj.Relay; import edu.wpi.first.wpilibj.Solenoid; import 
-edu.wpi.first.wpilibj.DriverStationLCD; import edu.wpi.first.wpilibj.AnalogModule; import 
-edu.wpi.first.wpilibj.DigitalModule; import edu.wpi.first.wpilibj.Compressor; import 
-edu.wpi.first.wpilibj.Jaguar; import edu.wpi.first.wpilibj.Timer; import 
-edu.wpi.first.wpilibj.Watchdog; import edu.wpi.first.wpilibj.Joystick; import 
-edu.wpi.first.wpilibj.RobotDrive; import edu.wpi.first.wpilibj.SensorBase; import 
-edu.wpi.first.wpilibj.camera.AxisCamera; import edu.wpi.first.wpilibj.camera.AxisCameraException; 
-import edu.wpi.first.wpilibj.image.ColorImage; import edu.wpi.first.wpilibj.image.NIVisionException; 
-import edu.wpi.first.wpilibj.*; public class RobotTemplate extends SimpleRobot {
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) FIRST 2008. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+//import package edu.wpi.first.wpilibj.samples;
+
+package edu.wpi.first.wpilibj.templates;
+import edu.wpi.first.wpilibj.SimpleRobot;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DriverStationLCD;
+import edu.wpi.first.wpilibj.AnalogModule;
+import edu.wpi.first.wpilibj.DigitalModule;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Watchdog;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SensorBase;
+import edu.wpi.first.wpilibj.camera.AxisCamera;
+import edu.wpi.first.wpilibj.camera.AxisCameraException;
+import edu.wpi.first.wpilibj.image.ColorImage;
+import edu.wpi.first.wpilibj.image.NIVisionException;
+import edu.wpi.first.wpilibj.*;
+
+
+public class RobotTemplate extends SimpleRobot {
+
     Jaguar five = new Jaguar(5);
     Jaguar six = new Jaguar(6);
     RobotDrive mydrive = new RobotDrive(1,2,3,4);
-    Joystick leftStick = new Joystick(1);
+    Joystick leftStick  = new Joystick(1);
     Joystick rightStick = new Joystick(2);
-    Compressor compressor = new Compressor(1,1); // 2 digital press switchgo to d/o, 4 spitke to relay 
-on side card
+    Compressor compressor = new Compressor(1,1); // 2 digital press switchgo to d/o,      4 spitke to relay on side card
     Solenoid sone = new Solenoid(1);
     Solenoid stwo = new Solenoid(2);
     Solenoid sthree = new Solenoid(3);
     private static int a = 0;
     Servo arm1 = new Servo(7);
     Servo arm2 = new Servo(8);
+
+
     //Relay relay = new Relay(2);
     // DigitalInput d1 = new DigitalInput(2);
- // Relay r1 = new Relay(1);
+ //   Relay r1 = new Relay(1);
     AxisCamera cam;
-    public RobotTemplate() {
+    public RobotTemplate()
+{
    // getWatchdog().setEnabled(false);
     //DriverStationLCD.getInstance().println(DriverStationLCD.Line.kMain6, 1, "ver 1.00");
     //DriverStationLCD.getInstance().updateLCD();
-  
+
 }
+
     public void robotInit()
     {
-     // getWatchdog().setEnabled(false);
+
+     //   getWatchdog().setEnabled(false);
         compressor.start();
         Timer.delay(10.0);
         cam = AxisCamera.getInstance();
         cam.writeResolution(AxisCamera.ResolutionT.k160x120);
         //cam.writeColorLevel(1);
-        cam.writeBrightness(0); //// cam = AxisCamera.getInstance();
+        cam.writeBrightness(0);
+
+
+//// cam = AxisCamera.getInstance();
  //cam.writeResolution(AxisCamera.ResolutionT.k640x480);
  //cam.writeBrightness(0);
- 
+
     }
-   
+
+
+
     public void autonomous() {
        // compressor.start();
         getWatchdog().setEnabled(false);
-      // compressor.start();
-    // five.set(1.0);
-      // six.set(1.0);
+      //    compressor.start();
+    //    five.set(1.0);
+      //  six.set(1.0);
         mydrive.drive(0.1,0.1);
-     // Timer.delay(5.0);
-    // mydrive.drive(0.1,0.1);
-   // Timer.delay(5.0);
+     //   Timer.delay(5.0);
+
+    //    mydrive.drive(0.1,0.1);
+   //     Timer.delay(5.0);
          mydrive.drive(0,0);
-        
+
     }
-   
+
+
     public void operatorControl() {
-         compressor.start(); // HSLImage image;
+         compressor.start();
+
+
+// HSLImage image;
  //image = new HSLImage();
+
+
+
+
          while(isOperatorControl())
         {
  //cam.getImage(image.image);
             // rightStick.
              //arm1.
-             if (leftStick.getRawButton(2)==true) //Button R2 sets Servo: arm1 to 25% of its total 
-range (180 degrees)
+
+             if (leftStick.getRawButton(2)==true)  //Button R2 sets Servo: arm1 to 25% of its total range (180 degrees)
              {
                  arm1.set(0.25);
              }
-             if (leftStick.getRawButton(3)==true) //Button R3 sets Servo: arm1 to 75% of its total 
-range (180 degrees)
+             if (leftStick.getRawButton(3)==true)  //Button R3 sets Servo: arm1 to 75% of its total range (180 degrees)
              {
                  arm1.set(0.75);
              }
@@ -95,21 +129,22 @@ range (180 degrees)
                  arm1.set(0.5);
                  arm2.set(0.5);
              }
-// arm1.set(0.0); //Testing the movement of the camera, setting the X axis to 0% (0 degrees) of it full 
-180 deegree range of motion // arm2.set(0.0); //Testing the movement of the camera, setting the Y axis 
-to 0% (0 degrees) of it full 180 deegree range of motion // Timer.delay(.5); // arm1.set(0.5); 
-//Testing the movement of the camera, setting the X axis to 50% (90 degrees) of it full 180 deegree 
-range of motion (centered) // arm2.set(0.5); //Testing the movement of the camera, setting the Y axis 
-to 50% (90 degrees) of it full 180 deegree range of motion (centered) // Timer.delay(.5); // 
-arm1.set(1.0); //Testing the movement of the camera, setting the X axis to 100% (180 degrees) of it 
-full 180 deegree range of motion // arm2.set(1.0); //Testing the movement of the camera, setting the Y 
-axis to 100% (180 degrees) of it full 180 deegree range of motion // Timer.delay(.5); // arm1.set(0.5); 
-//Testing the movement of the camera, setting the X axis to 50% (90 degrees) of it full 180 deegree 
-range of motion (centered) // arm2.set(0.5); //Testing the movement of the camera, setting the Y axis 
-to 50% (90 degrees) of it full 180 deegree range of motion (centered) // Timer.delay(0.5); // 
-arm1.set(0.0); //Testing the movement of the camera, setting the X axis to 0% (0 degrees) of it full 
-180 deegree range of motion // arm2.set(0.5); //Testing the movement of the camera, setting the Y axis 
-to 50% (90 degrees) of it full 180 deegree range of motion (centered) //******Camera***
+//             arm1.set(0.0);  //Testing the movement of the camera, setting the X axis to 0% (0 degrees) of it full 180 deegree range of motion
+//             arm2.set(0.0);  //Testing the movement of the camera, setting the Y axis to 0% (0 degrees) of it full 180 deegree range of motion
+//             Timer.delay(.5);
+//             arm1.set(0.5);  //Testing the movement of the camera, setting the X axis to 50% (90 degrees) of it full 180 deegree range of motion (centered)
+//             arm2.set(0.5);  //Testing the movement of the camera, setting the Y axis to 50% (90 degrees) of it full 180 deegree range of motion (centered)
+//             Timer.delay(.5);
+//             arm1.set(1.0);  //Testing the movement of the camera, setting the X axis to 100% (180 degrees) of it full 180 deegree range of motion
+//             arm2.set(1.0);  //Testing the movement of the camera, setting the Y axis to 100% (180 degrees) of it full 180 deegree range of motion
+//             Timer.delay(.5);
+//             arm1.set(0.5);  //Testing the movement of the camera, setting the X axis to 50% (90 degrees) of it full 180 deegree range of motion (centered)
+//             arm2.set(0.5);  //Testing the movement of the camera, setting the Y axis to 50% (90 degrees) of it full 180 deegree range of motion (centered)
+//             Timer.delay(0.5);
+//             arm1.set(0.0);  //Testing the movement of the camera, setting the X axis to 0% (0 degrees) of it full 180 deegree range of motion
+//             arm2.set(0.5);  //Testing the movement of the camera, setting the Y axis to 50% (90 degrees) of it full 180 deegree range of motion (centered)
+
+//******Camera***
         ColorImage image = null;
             try {
                 if (cam.freshImage()) {// && turnController.onTarget()) {
@@ -129,6 +164,7 @@ to 50% (90 degrees) of it full 180 deegree range of motion (centered) //******Ca
                 {}
             }
 //*** camera
+
  if (rightStick.getRawButton(4)==true)
  {
      five.set(0.5);
@@ -137,6 +173,7 @@ to 50% (90 degrees) of it full 180 deegree range of motion (centered) //******Ca
  {
      five.set(0);
  }
+
 if (rightStick.getRawButton(5)==true)
  {
      five.set(-1.0);
@@ -154,6 +191,7 @@ if (rightStick.getRawButton(5)==true)
  {
      sone.set(false);
  }
+
  if (rightStick.getRawButton(8)==true)
  {
      stwo.set(true);
@@ -162,6 +200,9 @@ if (rightStick.getRawButton(5)==true)
  {
      stwo.set(false);
  }
+
+
+
  if (rightStick.getRawButton(3)==true)
  {
      six.set(1.0);
@@ -170,6 +211,7 @@ if (rightStick.getRawButton(5)==true)
  {
      six.set(0);
  }
+
  if (rightStick.getRawButton(2)==true)
  {
      six.set(-1.0);
@@ -178,12 +220,21 @@ if (rightStick.getRawButton(5)==true)
  {
      six.set(0);
  }
-//switch drives // if (leftStick.getRawButton(1)) // {
-     mydrive.arcadeDrive(leftStick); // } // else if (leftStick.getRawButton(3)) // { // 
-mydrive.tankDrive(0.0, -0.2); // } // else // {
- // mydrive.mecanumDrive_Polar(leftStick.getMagnitude(), leftStick.getDirectionDegrees(), 0); //old // 
-}
-    Timer.delay(0.0001); //old //end drives, solenoid code
+//switch drives
+// if (leftStick.getRawButton(1))
+// {
+     mydrive.arcadeDrive(leftStick);
+// }
+// else if (leftStick.getRawButton(3))
+// {
+//    mydrive.tankDrive(0.0, -0.2);
+// }
+// else
+// {
+ //  mydrive.mecanumDrive_Polar(leftStick.getMagnitude(), leftStick.getDirectionDegrees(), 0); //old
+// }
+    Timer.delay(0.0001); //old
+//end drives, solenoid code
      if (rightStick.getRawButton(1)==true)
  {
      sthree.set(true);
@@ -192,6 +243,9 @@ mydrive.tankDrive(0.0, -0.2); // } // else // {
  {
      sthree.set(false);
  }
+
+
  }
     }
   }
+
