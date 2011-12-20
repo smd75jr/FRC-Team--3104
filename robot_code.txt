@@ -221,18 +221,14 @@ if (rightStick.getRawButton(5)==true)
      six.set(0);
  }
 //switch drives
-// if (leftStick.getRawButton(1))
-// {
-     mydrive.arcadeDrive(leftStick);
-// }
-// else if (leftStick.getRawButton(3))
-// {
-//    mydrive.tankDrive(0.0, -0.2);
-// }
-// else
-// {
- //  mydrive.mecanumDrive_Polar(leftStick.getMagnitude(), leftStick.getDirectionDegrees(), 0); //old
-// }
+if (leftStick.getRawButton(8)==false)
+ {
+  mydrive.arcadeDrive(leftStick);
+ }
+if (leftStick.getRawButton(3))
+ {
+  mydrive.mecanumDrive_Polar(leftStick.getMagnitude(), leftStick.getDirectionDegrees(), 0); //old
+ }
     Timer.delay(0.0001); //old
 //end drives, solenoid code
      if (rightStick.getRawButton(1)==true)
