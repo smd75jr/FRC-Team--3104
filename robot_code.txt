@@ -33,6 +33,7 @@ public class RobotTemplate extends SimpleRobot {
     Jaguar five = new Jaguar(5);
     Jaguar six = new Jaguar(6);
     RobotDrive mydrive = new RobotDrive(1,2,3,4);
+    //RobotDrive 
     Joystick leftStick  = new Joystick(1);
     Joystick rightStick = new Joystick(2);
     Compressor compressor = new Compressor(1,1); // 2 digital press switchgo to d/o,      4 spitke to relay on side card
@@ -108,21 +109,30 @@ public class RobotTemplate extends SimpleRobot {
             // rightStick.
              //arm1.
 
+
+
+
+            //arm1.set(arm1.get() + 0.05);
+
              if (leftStick.getRawButton(2)==true)  //Button R2 sets Servo: arm1 to 25% of its total range (180 degrees)
              {
-                 arm1.set(0.25);
+                 //arm1.set(0.25);
+                 arm1.set(arm1.get() - 0.05);
              }
              if (leftStick.getRawButton(3)==true)  //Button R3 sets Servo: arm1 to 75% of its total range (180 degrees)
              {
-                 arm1.set(0.75);
+                 //arm1.set(0.75);
+                 arm1.set(arm1.get() + 0.05);
              }
              if (leftStick.getRawButton(4)==true)
              {
-                 arm2.set(0.25);
+                 //arm2.set(0.25);
+                 arm2.set(arm2.get() - 0.05);
              }
              if (leftStick.getRawButton(5)==true)
              {
-                 arm2.set(0.75);
+                 //arm2.set(0.75);
+                 arm2.set(arm2.get() + 0.05);
              }
              if (leftStick.getRawButton(1)==true)
              {
@@ -221,17 +231,18 @@ if (rightStick.getRawButton(5)==true)
      six.set(0);
  }
 //switch drives
-if (leftStick.getRawButton(8)==false)
- {
-  mydrive.arcadeDrive(leftStick);
- }
-if (leftStick.getRawButton(3))
+ 
+if (leftStick.getRawButton(8)==true)
  {
   mydrive.mecanumDrive_Polar(leftStick.getMagnitude(), leftStick.getDirectionDegrees(), 0); //old
  }
+ else
+ {
+  mydrive.arcadeDrive(leftStick);
+ }
     Timer.delay(0.0001); //old
 //end drives, solenoid code
-     if (rightStick.getRawButton(1)==true)
+     if (rightStick.getRawButton(1)==true) //Trigger for Claw
  {
      sthree.set(true);
  }
